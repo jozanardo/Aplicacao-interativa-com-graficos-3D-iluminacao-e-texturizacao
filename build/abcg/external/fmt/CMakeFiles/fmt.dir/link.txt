@@ -1,0 +1,2 @@
+/home/zanardo/emsdk/upstream/emscripten/emar qc libfmt.a CMakeFiles/fmt.dir/format.cc.o
+/home/zanardo/emsdk/upstream/emscripten/emranlib libfmt.a

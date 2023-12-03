@@ -1,0 +1,182 @@
+[
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgApplication.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgApplication.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgApplication.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgApplication.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgTimer.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgTimer.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgTimer.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgTimer.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgException.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgException.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgException.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgException.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgImage.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgImage.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgImage.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgImage.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgTrackball.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgTrackball.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgTrackball.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgTrackball.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgWindow.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgWindow.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgWindow.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgWindow.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgUtil.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgUtil.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgUtil.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgUtil.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgOpenGLError.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLError.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLError.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgOpenGLError.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgOpenGLFunction.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLFunction.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLFunction.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgOpenGLFunction.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgOpenGLImage.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLImage.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLImage.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgOpenGLImage.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgOpenGLShader.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLShader.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLShader.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgOpenGLShader.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/abcg.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -sSDL2_IMAGE_FORMATS='[\"jpg\",\"png\"]' -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/abcg.dir/abcgOpenGLWindow.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLWindow.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/abcgOpenGLWindow.cpp",
+  "output": "abcg/CMakeFiles/abcg.dir/abcgOpenGLWindow.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_demo.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_demo.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_demo.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_demo.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_draw.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_draw.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_draw.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_draw.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_tables.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_tables.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_tables.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_tables.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_widgets.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_widgets.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_widgets.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_widgets.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_impl_sdl2.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_impl_sdl2.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_impl_sdl2.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_impl_sdl2.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/imgui",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/imgui.dir/includes_CXX.rsp -O3 -DNDEBUG -s USE_SDL=2 -o CMakeFiles/imgui.dir/imgui_impl_opengl3.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_impl_opengl3.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/imgui/imgui_impl_opengl3.cpp",
+  "output": "abcg/external/imgui/CMakeFiles/imgui.dir/imgui_impl_opengl3.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/abcg/external/fmt",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/fmt.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -o CMakeFiles/fmt.dir/format.cc.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/fmt/format.cc",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/abcg/external/fmt/format.cc",
+  "output": "abcg/external/fmt/CMakeFiles/fmt.dir/format.cc.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade02",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade02.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade02.dir/main.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/main.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/main.cpp",
+  "output": "examples/Atividade02/CMakeFiles/Atividade02.dir/main.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade02",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade02.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade02.dir/model.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/model.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/model.cpp",
+  "output": "examples/Atividade02/CMakeFiles/Atividade02.dir/model.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade02",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade02.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade02.dir/window.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/window.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade02/window.cpp",
+  "output": "examples/Atividade02/CMakeFiles/Atividade02.dir/window.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/starfield",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/starfield.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/starfield.dir/main.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/main.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/main.cpp",
+  "output": "examples/starfield/CMakeFiles/starfield.dir/main.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/starfield",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/starfield.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/starfield.dir/model.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/model.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/model.cpp",
+  "output": "examples/starfield/CMakeFiles/starfield.dir/model.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/starfield",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/starfield.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/starfield.dir/window.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/window.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/starfield/window.cpp",
+  "output": "examples/starfield/CMakeFiles/starfield.dir/window.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade03",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade03.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade03.dir/main.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/main.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/main.cpp",
+  "output": "examples/Atividade03/CMakeFiles/Atividade03.dir/main.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade03",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade03.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade03.dir/model.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/model.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/model.cpp",
+  "output": "examples/Atividade03/CMakeFiles/Atividade03.dir/model.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade03",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade03.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade03.dir/window.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/window.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/window.cpp",
+  "output": "examples/Atividade03/CMakeFiles/Atividade03.dir/window.cpp.o"
+},
+{
+  "directory": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/build/examples/Atividade03",
+  "command": "/home/zanardo/emsdk/upstream/emscripten/em++  @CMakeFiles/Atividade03.dir/includes_CXX.rsp -O3 -DNDEBUG -std=gnu++20 -Wall -Wextra -pedantic -std=c++20 -Oz -sUSE_SDL=2 -sUSE_SDL_IMAGE=2 -o CMakeFiles/Atividade03.dir/trackball.cpp.o -c /home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/trackball.cpp",
+  "file": "/home/zanardo/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/examples/Atividade03/trackball.cpp",
+  "output": "examples/Atividade03/CMakeFiles/Atividade03.dir/trackball.cpp.o"
+}
+]

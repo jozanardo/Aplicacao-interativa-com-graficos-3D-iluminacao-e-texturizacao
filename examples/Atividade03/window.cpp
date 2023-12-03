@@ -39,8 +39,8 @@ void Window::onEvent(SDL_Event const &event) {
 void Window::onCreate() {
   auto const assetsPath{abcg::Application::getAssetsPath()};
 
-  // abcg::glClearColor(0, 0, 0, 1);
-  abcg::glClearColor(0.0f, 0.1f, 0.2f, 1.0f);
+  abcg::glClearColor(0, 0, 0, 1);
+  // abcg::glClearColor(0.0f, 0.1f, 0.2f, 1.0f);
   abcg::glEnable(GL_DEPTH_TEST);
 
   m_fishs.resize(m_fish_quantity);
@@ -70,6 +70,8 @@ void Window::onCreate() {
   // Initial trackball spin
   m_trackBallModel.setAxis(glm::normalize(glm::vec3(1, 1, 1)));
   m_trackBallModel.setVelocity(0.1f);
+
+  createSkybox();
 }
 
 void Window::randomizeFish(Fish &fish) {
@@ -88,7 +90,8 @@ void Window::loadModel(std::string_view path) {
   m_model.destroy();
 
   m_model.loadDiffuseTexture(assetsPath + m_diffuse);
-  m_model.loadNormalTexture(assetsPath + "maps/Fish_baby_V1_normal.jpg");
+  m_model.loadNormalTexture(assetsPath + m_normal);
+  m_model.loadCubeTexture(assetsPath + "maps/cube/");
   m_model.loadObj(path);
   m_model.setupVAO(m_programs.at(m_currentProgramIndex));
   m_trianglesToDraw = m_model.getNumTriangles();
@@ -126,14 +129,20 @@ void Window::onPaint() {
   auto const KsLoc{abcg::glGetUniformLocation(program, "Ks")};
   auto const diffuseTexLoc{abcg::glGetUniformLocation(program, "diffuseTex")};
   auto const normalTexLoc{abcg::glGetUniformLocation(program, "normalTex")};
+  auto const cubeTexLoc{abcg::glGetUniformLocation(program, "cubeTex")};
   auto const mappingModeLoc{abcg::glGetUniformLocation(program, "mappingMode")};
+  auto const texMatrixLoc{abcg::glGetUniformLocation(program, "texMatrix")};
 
   // Set uniform variables that have the same value for every model
   abcg::glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, &m_viewMatrix[0][0]);
   abcg::glUniformMatrix4fv(projMatrixLoc, 1, GL_FALSE, &m_projMatrix[0][0]);
   abcg::glUniform1i(diffuseTexLoc, 0);
   abcg::glUniform1i(normalTexLoc, 1);
+  abcg::glUniform1i(cubeTexLoc, 2);
   abcg::glUniform1i(mappingModeLoc, m_mappingMode);
+
+  glm::mat3 const texMatrix{m_trackBallLight.getRotation()};
+  abcg::glUniformMatrix3fv(texMatrixLoc, 1, GL_TRUE, &texMatrix[0][0]);
 
   auto const lightDirRotated{m_trackBallLight.getRotation() * m_lightDir};
   abcg::glUniform4fv(lightDirLoc, 1, &lightDirRotated.x);
@@ -169,6 +178,9 @@ void Window::onPaint() {
   }
 
   abcg::glUseProgram(0);
+
+  renderSkybox(); 
+  
 }
 
 void Window::onUpdate() {
@@ -293,6 +305,7 @@ void Window::onPaintUI() {
     static std::size_t currentIndexFish{};
     std::vector<std::string> const objects{"Fish_baby_V1.obj", "Puffer_fish_v1.obj", "Shark_v1.obj"};
     std::vector<std::string> const diffuses{"maps/Fish_baby_V1_diffuse.jpg", "maps/Puffer_fish_v1_diffuse.jpg", "maps/Shark_v1_diffuse.jpg"};
+    std::vector<std::string> const normals{"maps/Fish_baby_V1_normal.jpg", "maps/Puffer_fish_v1_normal.jpg", "maps/Shark_v1_normal.jpg"};
     if (ImGui::BeginCombo("Peixe",
                           objects.at(currentIndexFish).c_str())) {
       for (auto const index : iter::range(objects.size())) {
@@ -301,6 +314,7 @@ void Window::onPaintUI() {
           currentIndexFish = index;
           m_object = objects[currentIndexFish];
           m_diffuse = diffuses[currentIndexFish];
+          m_normal = normals[currentIndexFish];
           abcg::glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
           onCreate();
         }
@@ -490,4 +504,75 @@ void Window::onDestroy() {
   for (auto const &program : m_programs) {
     abcg::glDeleteProgram(program);
   }
+}
+
+void Window::createSkybox() {
+  auto const assetsPath{abcg::Application::getAssetsPath()};
+
+  // Create skybox program
+  auto const path{assetsPath + "shaders/" + m_skyShaderName};
+  m_skyProgram = abcg::createOpenGLProgram(
+      {{.source = path + ".vert", .stage = abcg::ShaderStage::Vertex},
+       {.source = path + ".frag", .stage = abcg::ShaderStage::Fragment}});
+
+  // Generate VBO
+  abcg::glGenBuffers(1, &m_skyVBO);
+  abcg::glBindBuffer(GL_ARRAY_BUFFER, m_skyVBO);
+  abcg::glBufferData(GL_ARRAY_BUFFER, sizeof(m_skyPositions),
+                     m_skyPositions.data(), GL_STATIC_DRAW);
+  abcg::glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  // Get location of attributes in the program
+  auto const positionAttribute{
+      abcg::glGetAttribLocation(m_skyProgram, "inPosition")};
+
+  // Create VAO
+  abcg::glGenVertexArrays(1, &m_skyVAO);
+
+  // Bind vertex attributes to current VAO
+  abcg::glBindVertexArray(m_skyVAO);
+
+  abcg::glBindBuffer(GL_ARRAY_BUFFER, m_skyVBO);
+  abcg::glEnableVertexAttribArray(positionAttribute);
+  abcg::glVertexAttribPointer(positionAttribute, 3, GL_FLOAT, GL_FALSE, 0,
+                              nullptr);
+  abcg::glBindBuffer(GL_ARRAY_BUFFER, 0);
+
+  // End of binding to current VAO
+  abcg::glBindVertexArray(0);
+}
+
+void Window::renderSkybox() {
+  abcg::glUseProgram(m_skyProgram);
+
+  auto const viewMatrixLoc{
+      abcg::glGetUniformLocation(m_skyProgram, "viewMatrix")};
+  auto const projMatrixLoc{
+      abcg::glGetUniformLocation(m_skyProgram, "projMatrix")};
+  auto const skyTexLoc{abcg::glGetUniformLocation(m_skyProgram, "skyTex")};
+
+  auto const viewMatrix{m_trackBallLight.getRotation()};
+  abcg::glUniformMatrix4fv(viewMatrixLoc, 1, GL_FALSE, &viewMatrix[0][0]);
+  abcg::glUniformMatrix4fv(projMatrixLoc, 1, GL_FALSE, &m_projMatrix[0][0]);
+  abcg::glUniform1i(skyTexLoc, 0);
+
+  abcg::glBindVertexArray(m_skyVAO);
+
+  abcg::glActiveTexture(GL_TEXTURE0);
+  abcg::glBindTexture(GL_TEXTURE_CUBE_MAP, m_model.getCubeTexture());
+
+  abcg::glEnable(GL_CULL_FACE);
+  abcg::glFrontFace(GL_CW);
+  abcg::glDepthFunc(GL_LEQUAL);
+  abcg::glDrawArrays(GL_TRIANGLES, 0, m_skyPositions.size());
+  abcg::glDepthFunc(GL_LESS);
+
+  abcg::glBindVertexArray(0);
+  abcg::glUseProgram(0);
+}
+
+void Window::destroySkybox() const {
+  abcg::glDeleteProgram(m_skyProgram);
+  abcg::glDeleteBuffers(1, &m_skyVBO);
+  abcg::glDeleteVertexArrays(1, &m_skyVAO);
 }

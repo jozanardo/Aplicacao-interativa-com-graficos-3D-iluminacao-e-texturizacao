@@ -38,6 +38,7 @@ private:
 
   std::string m_object{"Fish_baby_V1.obj"};
   std::string m_diffuse{"maps/Fish_baby_V1_diffuse.jpg"};
+  std::string m_normal{"maps/Fish_baby_V1_normal.jpg"};
 
   // Shaders
   std::vector<char const *> m_shaderNames{
@@ -84,7 +85,39 @@ private:
   float m_ambientStrength{1.0f};
   float m_specularStrength{1.0f};
 
+  // Skybox
+  std::string const m_skyShaderName{"skybox"};
+  GLuint m_skyVAO{};
+  GLuint m_skyVBO{};
+  GLuint m_skyProgram{};
+
+  // clang-format off
+  std::array<glm::vec3, 36> const m_skyPositions{{
+      // Front
+      {-1, -1, +1}, {+1, -1, +1}, {+1, +1, +1},
+      {-1, -1, +1}, {+1, +1, +1}, {-1, +1, +1},
+      // Back
+      {+1, -1, -1}, {-1, -1, -1}, {-1, +1, -1},
+      {+1, -1, -1}, {-1, +1, -1}, {+1, +1, -1},
+      // Right
+      {+1, -1, -1}, {+1, +1, -1}, {+1, +1, +1},
+      {+1, -1, -1}, {+1, +1, +1}, {+1, -1, +1},
+      // Left
+      {-1, -1, +1}, {-1, +1, +1}, {-1, +1, -1},
+      {-1, -1, +1}, {-1, +1, -1}, {-1, -1, -1},
+      // Top
+      {-1, +1, +1}, {+1, +1, +1}, {+1, +1, -1},
+      {-1, +1, +1}, {+1, +1, -1}, {-1, +1, -1},
+      // Bottom
+      {-1, -1, -1}, {+1, -1, -1}, {+1, -1, +1},
+      {-1, -1, -1}, {+1, -1, +1}, {-1, -1, +1}}};
+  // clang-format on
+
+  void createSkybox();
+  void renderSkybox();
+  void destroySkybox() const;
   void loadModel(std::string_view path);
+
 };
 
 #endif

@@ -5,6 +5,8 @@ Guilherme Klinkerfuss Guimarães Pereira - 11201912414
 
 # Explicação do Projeto
 
+O principal objetivo desse projeto foi estudar as aulas de iluminação e texturização para aprender os conceitos de texturas e mapas normais, manipular a cena com diferentes shaders e técnicas de iluminação, bem como interagir com elementos gráficos, como a configuração de skybox e a renderização de peixes em um ambiente virtual. Com isso, temos um pojeto que visa recriar a visa no Fundo do Mar.
+
 # Explicação detalhada Window.cpp
 ## onEvent(SDL_Event const &event)
 

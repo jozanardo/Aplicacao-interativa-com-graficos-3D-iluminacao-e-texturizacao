@@ -8,19 +8,19 @@ Guilherme Klinkerfuss Guimarães Pereira - 11201912414
 ## Explicação detalhada Window.cpp
 ### onEvent(SDL_Event const &event)
 
-    Este método responde a eventos SDL, como movimentos do mouse, cliques e rolagem. Ele controla interações do mouse para manipular a câmera, objetos e luz na cena.
+Este método responde a eventos SDL, como movimentos do mouse, cliques e rolagem. Ele controla interações do mouse para manipular a câmera, objetos e luz na cena.
 
-    **SDL_MOUSEMOTION**: Atualiza a posição do mouse e aplica a movimentação no modelo e na luz (usando m_trackBallModel e m_trackBallLight).
+**SDL_MOUSEMOTION**: Atualiza a posição do mouse e aplica a movimentação no modelo e na luz (usando m_trackBallModel e m_trackBallLight).
 
-    **SDL_MOUSEBUTTONDOWN / SDL_MOUSEBUTTONUP**: Captura cliques do mouse. No caso do botão esquerdo, é usado para interagir com o modelo, e no botão direito, com a luz.
+**SDL_MOUSEBUTTONDOWN / SDL_MOUSEBUTTONUP**: Captura cliques do mouse. No caso do botão esquerdo, é usado para interagir com o modelo, e no botão direito, com a luz.
 
-    **SDL_MOUSEWHEEL**: Controla o zoom da cena com base na rolagem do mouse.
+**SDL_MOUSEWHEEL**: Controla o zoom da cena com base na rolagem do mouse.
 
 ### onCreate()
 
-    O método onCreate() realiza configurações iniciais essenciais para a cena OpenGL, incluindo limpeza de buffers, criação de programas shader, definição da matriz de visualização, posicionamento inicial dos peixes, carregamento de modelos e criação do skybox para a aplicação.
+O método onCreate() realiza configurações iniciais essenciais para a cena OpenGL, incluindo limpeza de buffers, criação de programas shader, definição da matriz de visualização, posicionamento inicial dos peixes, carregamento de modelos e criação do skybox para a aplicação.
 
-    **auto const assetsPath{abcg::Application::getAssetsPath()}**: Obtém o caminho para o diretório de ativos (assets) onde os recursos (como modelos 3D, texturas, shaders, etc.) da aplicação estão armazenados.
+**auto const assetsPath{abcg::Application::getAssetsPath()}**: Obtém o caminho para o diretório de ativos (assets) onde os recursos (como modelos 3D, texturas, shaders, etc.) da aplicação estão armazenados.
 
     **abcg::glClearColor(0, 0, 0, 1)** e **abcg::glEnable(GL_DEPTH_TEST)**: Define a cor de fundo da janela OpenGL como preto e habilita o teste de profundidade para lidar com a renderização em 3D e a sobreposição correta de objetos na cena.
 

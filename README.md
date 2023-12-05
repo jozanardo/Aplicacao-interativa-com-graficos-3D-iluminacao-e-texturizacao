@@ -6,6 +6,7 @@ Guilherme Klinkerfuss Guimarães Pereira - 11201912414
 # Explicação do Projeto
 
 O principal objetivo desse projeto foi estudar as aulas de iluminação e texturização para aprender os conceitos de texturas e mapas normais, manipular a cena com diferentes shaders e técnicas de iluminação, bem como interagir com elementos gráficos, como a configuração de skybox e a renderização de peixes em um ambiente virtual. Com isso, temos um pojeto que visa recriar a visa no Fundo do Mar.
+Para isso, as principais alterações foram feitas na Window.cpp e na Model.cpp, abaixo estão as explicações detalhadas. :-)
 
 # Explicação detalhada Window.cpp
 ## onEvent(SDL_Event const &event)
@@ -235,6 +236,36 @@ O método renderSkybox() é responsável por renderizar o skybox na cena gráfic
 ## destroySkybox()
 
 O método destroySkybox() é responsável por desalocar os recursos utilizados para renderizar o skybox na aplicação gráfica OpenGL. Em detalhes, este método remove o programa OpenGL associado ao skybox **(m_skyProgram)**, que controla os shaders utilizados para renderizar o céu, liberando a memória associada a ele. Além disso, ele deleta o **Vertex Buffer Object (VBO) (m_skyVBO)** e o **Array Object (VAO) (m_skyVAO)** utilizados para armazenar os atributos dos vértices e definir os estados de renderização do skybox, respectivamente. Essa destruição de recursos é crucial para evitar vazamento de memória e liberar os recursos alocados durante a execução do programa gráfico.
+
+# Explicação detalhada Model.cpp
+
+## computeNormals()
+Este método calcula as normais dos vértices do modelo com base nas faces. Ele itera sobre os índices dos vértices, calcula as normais das faces e as acumula nos vértices correspondentes.
+
+**for (auto &vertex : m_vertices) {vertex.normal = glm::vec3(0.0f);}**: percorre todos os vértices do modelo (m_vertices) e define suas normais como vetores tridimensionais nulos. Isso limpa quaisquer valores anteriores de normais que possam estar presentes nos vértices. A variável vertex.normal armazena as normais de cada vértice do modelo.
+
+**for (auto const offset : iter::range(0UL, m_indices.size(), 3UL)) { ... }**: tera através dos índices do modelo em incrementos de três (representando triângulos). Para cada conjunto de três vértices, ele calcula a normal da face usando o produto vetorial dos vetores que formam os lados do triângulo. Essa normal é então acumulada nos vértices correspondentes à face.
+
+## computeTangents()
+Calcula os vetores tangentes para o modelo. Ele gera as informações de tangente e bitangente para cada vértice do modelo.
+
+**std::vector bitangents(m_vertices.size(), glm::vec3(0))**: é criado um vetor de bitangentes (bitangents) para armazenar informações dos vetores bitangentes de cada vértice. O tamanho do vetor é igual ao número de vértices no modelo.
+
+## createBuffers(): Cria e configura os buffers de vértices e índices necessários para renderizar o modelo no OpenGL.
+
+## loadCubeTexture(), loadDiffuseTexture(), loadNormalTexture()
+
+Métodos para carregar texturas, como texturas difusas, normais e texturas de cubo, usadas no modelo.
+
+loadObj(): Carrega um modelo 3D a partir de um arquivo .obj especificado. Isso envolve a leitura dos vértices, índices, normais e coordenadas de textura do arquivo .obj fornecido.
+
+render(): Renderiza o modelo no OpenGL, definindo e ativando as texturas usadas pelo modelo, além de desenhar os elementos com base nos buffers criados.
+
+setupVAO(): Configura o Vertex Array Object (VAO) usado para armazenar o estado do vertex array. Isso envolve a definição dos atributos dos vértices (posição, normal, coordenada de textura e tangente) e seu uso no programa do shader.
+
+standardize(): Redimensiona e reposiciona o modelo para centrá-lo na origem e normalizar sua maior dimensão para o intervalo [-1, 1].
+
+destroy(): Limpa os recursos do OpenGL associados ao modelo, como texturas e buffers.
 
 # Para ver o resultado final abre no navegador:
 https://jozanardo.github.io/Aplicacao-interativa-com-graficos-2D/

@@ -242,30 +242,107 @@ O método destroySkybox() é responsável por desalocar os recursos utilizados p
 ## computeNormals()
 Este método calcula as normais dos vértices do modelo com base nas faces. Ele itera sobre os índices dos vértices, calcula as normais das faces e as acumula nos vértices correspondentes.
 
-**for (auto &vertex : m_vertices) {vertex.normal = glm::vec3(0.0f);}**: percorre todos os vértices do modelo (m_vertices) e define suas normais como vetores tridimensionais nulos. Isso limpa quaisquer valores anteriores de normais que possam estar presentes nos vértices. A variável vertex.normal armazena as normais de cada vértice do modelo.
+**for (auto &vertex : m_vertices) {vertex.normal = glm::vec3(0.0f);}**: Percorre todos os vértices do modelo (m_vertices) e define suas normais como vetores tridimensionais nulos. Isso limpa quaisquer valores anteriores de normais que possam estar presentes nos vértices. A variável vertex.normal armazena as normais de cada vértice do modelo.
 
-**for (auto const offset : iter::range(0UL, m_indices.size(), 3UL)) { ... }**: tera através dos índices do modelo em incrementos de três (representando triângulos). Para cada conjunto de três vértices, ele calcula a normal da face usando o produto vetorial dos vetores que formam os lados do triângulo. Essa normal é então acumulada nos vértices correspondentes à face.
+**for (auto const offset : iter::range(0UL, m_indices.size(), 3UL)) { ... }**: Itera através dos índices do modelo em incrementos de três (representando triângulos). Para cada conjunto de três vértices, ele calcula a normal da face usando o produto vetorial dos vetores que formam os lados do triângulo. Essa normal é então acumulada nos vértices correspondentes à face.
 
 ## computeTangents()
 Calcula os vetores tangentes para o modelo. Ele gera as informações de tangente e bitangente para cada vértice do modelo.
 
-**std::vector bitangents(m_vertices.size(), glm::vec3(0))**: é criado um vetor de bitangentes (bitangents) para armazenar informações dos vetores bitangentes de cada vértice. O tamanho do vetor é igual ao número de vértices no modelo.
+**std::vector bitangents(m_vertices.size(), glm::vec3(0))**: É criado um vetor de bitangentes (bitangents) para armazenar informações dos vetores bitangentes de cada vértice. O tamanho do vetor é igual ao número de vértices no modelo.
 
-## createBuffers(): Cria e configura os buffers de vértices e índices necessários para renderizar o modelo no OpenGL.
+**for (auto const offset : iter::range(0UL, m_indices.size(), 3UL)) { ... }**: Cálculo das tangentes e bitangentes para cada face do modelo 3D e sua subsequente aplicação aos vértices correspondentes.
+
+**for (auto &&[i, vertex] : iter::enumerate(m_vertices)) { ... }**: Ortogonalização dos vetores tangentes em relação às normais dos vértices para garantir que os vetores tangentes sejam ortogonais às normais.
+
+**auto const &n{vertex.normal}**: **n** representa a normal do vértice.
+
+**auto const &t{glm::vec3(vertex.tangent)}**: **t** é o vetor tangente convertido para um glm::vec3 para facilitar cálculos posteriores.
+
+**auto const tangent{t - n * glm::dot(n, t)}**: **tangent** é o vetor tangente ortogonalizado em relação à normal do vértice.
+
+**vertex.tangent = glm::vec4(glm::normalize(tangent), 0)**: A fórmula **t - n * glm::dot(n, t)** projeta o vetor tangente **t** na direção da normal **n** e subtrai essa projeção do vetor original para garantir que o vetor tangente seja ortogonal à normal.
+
+**auto const b{glm::cross(n, t)}**: **b** é o vetor bitangente calculado anteriormente durante o processo de cálculo das tangentes e bitangentes por face.
+
+**auto const handedness{glm::dot(b, bitangents.at(i))}**: handedness calcula o produto escalar entre o vetor bitangente e o bitangente acumulado para aquele vértice específico (bitangents.at(i)).
+
+**vertex.tangent.w = (handedness < 0.0f) ? -1.0f : 1.0f**: O valor resultante de **handedness** determina se a orientação do vetor tangente é invertida ou não, e então atualiza o componente **w** do vetor tangente com base nesse cálculo.  
+    
+## createBuffers(): 
+Cria e configura os buffers de vértices e índices necessários para renderizar o modelo no OpenGL.
 
 ## loadCubeTexture(), loadDiffuseTexture(), loadNormalTexture()
 
 Métodos para carregar texturas, como texturas difusas, normais e texturas de cubo, usadas no modelo.
 
-loadObj(): Carrega um modelo 3D a partir de um arquivo .obj especificado. Isso envolve a leitura dos vértices, índices, normais e coordenadas de textura do arquivo .obj fornecido.
+## loadObj()
 
-render(): Renderiza o modelo no OpenGL, definindo e ativando as texturas usadas pelo modelo, além de desenhar os elementos com base nos buffers criados.
+Carrega um modelo 3D a partir de um arquivo .obj especificado. Isso envolve a leitura dos vértices, índices, normais e coordenadas de textura do arquivo .obj fornecido.
 
-setupVAO(): Configura o Vertex Array Object (VAO) usado para armazenar o estado do vertex array. Isso envolve a definição dos atributos dos vértices (posição, normal, coordenada de textura e tangente) e seu uso no programa do shader.
+**Leitura do Arquivo OBJ:**
+        **reader.GetAttrib(), reader.GetShapes(), reader.GetMaterials()**: Obtêm os atributos (vértices, normais, coordenadas de textura), formas (geometria) e materiais do arquivo OBJ, respectivamente.
 
-standardize(): Redimensiona e reposiciona o modelo para centrá-lo na origem e normalizar sua maior dimensão para o intervalo [-1, 1].
+**Preenchimento das Estruturas de Dados**:
+        Itera sobre as formas **(shapes)** e seus índices para preencher as estruturas de vértices e índices do modelo.
+        Para cada índice, obtém as informações de posição, normal e coordenadas de textura para criar um vértice.
 
-destroy(): Limpa os recursos do OpenGL associados ao modelo, como texturas e buffers.
+**if (!materials.empty()) { ... }:**
+    **Processamento de Materiais:**
+        Se o arquivo OBJ define materiais, o código obtém e aplica as propriedades do primeiro material à estrutura do modelo.
+        Configura as propriedades de material, como cor ambiente **(m_Ka)**, cor difusa **(m_Kd)**, cor especular **(m_Ks)** e a intensidade do brilho **(m_shininess)**.
+    **Carregamento de Texturas:**
+        Carrega texturas definidas no material do arquivo OBJ, como textura difusa **(mat.diffuse_texname)** e textura normal ou de bump mapping **(mat.normal_texname ou mat.bump_texname)**.
+
+## render()
+
+Renderiza o modelo no OpenGL, definindo e ativando as texturas usadas pelo modelo, além de desenhar os elementos com base nos buffers criados.
+
+**abcg::glBindVertexArray()**: associa o Vertex Array Object **(m_VAO)** atualmente ativo. Isso configura o estado do OpenGL para usar os buffers e os atributos de vértice definidos no VAO para a renderização do modelo.
+
+**setupVAO()**: Configura o Vertex Array Object (VAO) usado para armazenar o estado do vertex array. Isso envolve a definição dos atributos dos vértices (posição, normal, coordenada de textura e tangente) e seu uso no programa do shader.
+
+**abcg::glActiveTexture()**: ativa uma unidade de textura específica **(GL_TEXTURE0, GL_TEXTURE1, GL_TEXTURE2)** para uso.
+
+**abcg::glBindTexture()**: associa uma textura ao tipo de textura ativa. **m_diffuseTexture** está associado à unidade de textura 0, **m_normalTexture** à unidade 1 e **m_cubeTexture** à unidade 2.
+
+**abcg::glTexParameteri()**: define parâmetros de textura para filtragem (minificação e magnificação) e para a forma como as texturas são mapeadas (envolvimento) em relação aos eixos **S** (horizontal) e **T** (vertical). Neste caso, é definido o filtro linear para minificação e magnificação, e o modo de repetição para mapeamento de textura nos eixos **S** e **T**.
+
+**auto const numIndices{(numTriangles < 0) ? m_indices.size() : numTriangles * 3}**: Calcula o número de índices a serem renderizados com base no número de triângulos fornecidos. Se numTriangles for negativo, renderiza todos os triângulos do modelo **(m_indices.size())**, caso contrário, renderiza o número de triângulos especificado **(numTriangles * 3)**.
+
+**abcg::glDrawElements()**: renderiza primitivas gráficas (neste caso, triângulos) a partir dos dados de vértices e índices.
+
+**GL_TRIANGLES**: indica que as primitivas a serem desenhadas são triângulos.
+
+**numIndices**: especifica o número de índices a serem usados na renderização.
+
+**GL_UNSIGNED_INT**: indica o tipo de dado dos índices.
+
+**nullptr**: indica que os índices são lidos diretamente do buffer atualmente ligado pelo **glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ...)**.
+
+**abcg::glBindVertexArray(0)**: Desassocia o Vertex Array Object (VAO) atualmente ativo, restaurando o estado do OpenGL.
+
+## standardize()
+
+Redimensiona e reposiciona o modelo para centrá-lo na origem e normalizar sua maior dimensão para o intervalo [-1, 1].
+
+**glm::vec3 max(std::numeric_limits<float>::lowest());
+glm::vec3 min(std::numeric_limits<float>::max());
+for (auto const &vertex : m_vertices) {
+  max = glm::max(max, vertex.position);
+  min = glm::min(min, vertex.position);
+}**
+Este trecho calcula os limites (bounds) do modelo 3D, isto é, encontra o ponto máximo **(max)** e mínimo **(min)** para cada coordenada **(x, y e z)** dos vértices do modelo. Esses limites são usados para centralizar e normalizar o modelo.
+
+**center** é o ponto médio entre **min** e **max**, que representa o centro do modelo.
+
+**scaling** é o fator de escala calculado como o inverso do comprimento do maior intervalo (largest bound) encontrado entre os limites **(max - min)**.
+
+O loop **for (auto &vertex : m_vertices) {vertex.position = (vertex.position - center) * scaling;}** ajusta a posição de cada vértice do modelo: Cada posição de vértice é deslocada para o centro do modelo subtraindo o ponto **center**. A posição do vértice é escalada multiplicando-a pelo fator **scaling**.
+
+## destroy()
+
+Limpa os recursos do OpenGL associados ao modelo, como texturas e buffers.
 
 # Para ver o resultado final abre no navegador:
 https://jozanardo.github.io/Aplicacao-interativa-com-graficos-2D/

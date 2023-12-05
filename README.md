@@ -345,4 +345,4 @@ O loop **for (auto &vertex : m_vertices) {vertex.position = (vertex.position - c
 Limpa os recursos do OpenGL associados ao modelo, como texturas e buffers.
 
 # Para ver o resultado final abre no navegador:
-https://jozanardo.github.io/Aplicacao-interativa-com-graficos-2D/
+https://jozanardo.github.io/Aplicacao-interativa-com-graficos-3D-iluminacao-e-texturizacao/
